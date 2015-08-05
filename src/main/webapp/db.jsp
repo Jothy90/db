@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="resources/css/jquery.stepsc4ca.css?1">
 
-    <link rel="stylesheet" href="resources/css/data-tables/DT_bootstrap.css" />
+    <link rel="stylesheet" href="resources/css/data-tables/DT_bootstrap.css"/>
 
     <!-- Custom styles for this template -->
     <link href="resources/css/style.css" rel="stylesheet">
@@ -28,78 +28,39 @@
 
 <body>
 
-<section id="container">
-    >
-    <!--header end-->
 
-    <!--main content start-->
-    <section id="main-content" style="margin-left: 0px">
-
-        <section class="wrapper">
-            <!-- page start-->
-
-
-            <div class="row">
-                <div class="col-sm-12">
-                    <section class="panel">
-                        <header class="panel-heading">
-                            Device Table
-                        <span class="tools pull-right">
-                            <a href="javascript:;" class="fa fa-chevron-down"></a>
-                            <a href="javascript:;" class="fa fa-cog"></a>
-                            <a href="javascript:;" class="fa fa-times"></a>
-                         </span>
-                        </header>
-                        <div class="panel-body">
-                            <div class="adv-table editable-table ">
-                                <div class="clearfix">
-                                    <div class="btn-group">
-                                        <button id="editable-sample_new" class="btn btn-primary">
-                                            Add New <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                    <div class="btn-group pull-right">
-                                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">Tools <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li><a href="#">Print</a></li>
-                                            <li><a href="#">Save as PDF</a></li>
-                                            <li><a href="#">Export to Excel</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="space15"></div>
-                                <table class="table table-striped table-hover table-bordered" id="editable-sample">
-                                    <thead>
-                                    <tr>
-                                        <th>Device</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <c:forEach items="${devices}" var="device">
-                                        <tr class="">
-                                            <td><c:out value="${device.id}"/></td>
-                                            <td><a class="edit" href="javascript:;">Edit</a></td>
-                                            <td><a class="delete" href="javascript:;">Delete</a></td>
-                                        </tr>
-                                    </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </section>
+<div class="row">
+    <div class="col-sm-12">
+        <section class="panel">
+            <header class="panel-heading">
+                OfferStatus Table
+            </header>
+            <div class="panel-body">
+                <div class="adv-table editable-table ">
+                    <div class="space15"></div>
+                    <table class="table table-striped table-hover table-bordered" id="editable-sample">
+                        <thead>
+                        <tr>
+                            <th>Device</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${devices}" var="device">
+                            <tr class="">
+                                <td><c:out value="${device.id}"/></td>
+                                <td><a class="edit" href="javascript:;">Edit</a></td>
+                                <td><a class="delete" href="javascript:;">Delete</a></td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
-        <!-- page end-->
-
-    </section>
-    <!--main content end-->
-
-
-</section>
+    </div>
+</div>
 
 <!-- Placed js at the end of the document so the pages load faster -->
 
@@ -126,7 +87,7 @@
 <script src="resources/js/table-editable.js"></script>
 
 <script type="text/javascript">
-    jQuery(document).ready(function() {
+    jQuery(document).ready(function () {
         EditableTable.init();
     });
 </script>
