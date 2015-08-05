@@ -6,11 +6,11 @@
     <display-name>DB System</display-name>
 
     <servlet>
-        <servlet-name>mail</servlet-name>
-        <servlet-class>com.kash.db.servlet.LoadMail</servlet-class>
+        <servlet-name>db</servlet-name>
+        <servlet-class>com.kash.db.servlet.LoadOfferStatus</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>mail</servlet-name>
-        <url-pattern>/mail</url-pattern>
+        <servlet-name>db</servlet-name>
+        <url-pattern>/db</url-pattern>
     </servlet-mapping>
 </web-app>

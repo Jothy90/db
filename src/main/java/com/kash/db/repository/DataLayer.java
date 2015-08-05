@@ -1,11 +1,13 @@
 package com.kash.db.repository;
 
 
-import com.kash.db.repository.model.LoginUser;
+import com.kash.db.repository.model.OfferStatus;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,23 +19,25 @@ import java.sql.Statement;
 public class DataLayer {
 
     // when the user login; if it is valid user then return userId else return 0
-    public static int getUserId(LoginUser loginUser){
-        int id = 0;
-        String query = "select user_id from login where user_name = '" + loginUser.getUserName() +"' and password = '" + loginUser.getPassword()+"'" ;
+    public static List<OfferStatus> getAll(){
+        List<OfferStatus> list =new ArrayList<>();
+        OfferStatus offerStatus;
+        String query = "SELECT * FROM tmpOfferStatus ORDER BY rowid ASC";
         System.out.println(query);
         try {
             Connection con = DbConnection.getConnection();
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()){
-                id = rs.getInt("user_id");
+                offerStatus=new OfferStatus();
+                /*id = rs.getInt("user_id");*/
+                //TODO:
+                list.add(offerStatus);
             }
             con.close();
         } catch (Exception e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
-
-        return id;
+        return list;
     }
-
 }

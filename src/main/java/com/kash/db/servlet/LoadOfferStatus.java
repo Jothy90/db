@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
-public class LoadMail extends HttpServlet {
+public class LoadOfferStatus extends HttpServlet {
     public void init(ServletConfig config)
             throws ServletException {
         super.init(config);
