@@ -9,7 +9,7 @@ import java.util.Random;
  * Time: 10:15 PM
  * To change this template use File | Settings | File Templates.
  */
-public class Email {
+public class OfferStatus {
     int id;
     String sendFrom;
     String sendTo;
@@ -74,14 +74,14 @@ public class Email {
         this.id = id;
     }
 
-    public static Email getAMail(){
+    public static OfferStatus getAMail(){
 
         Random rand = new Random();
         int max=100;
         int min=1;
         int randomNum = rand.nextInt((max - min) + 1) + min;
 
-        Email email=new Email();
+        OfferStatus email=new OfferStatus();
         email.setId(randomNum);
         email.setSendTo("Kamalan");
         email.setSendFrom("Kashing");
