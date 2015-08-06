@@ -41,7 +41,6 @@ public class DataLayer {
         String query="SELECT *\n" +
                 "FROM tmpOfferStatus\n" +
                 "ORDER BY rowid ASC;";
-        System.out.println(query1);
         try {
             Connection con = DbConnection.getConnection();
             Statement stmt = con.createStatement();

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Mirrored from bucketadmin.themebucket.net/form_wizard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 18 Oct 2014 09:20:19 GMT -->
@@ -9,7 +10,7 @@
     <meta name="author" content="ThemeBucket">
     <link rel="shortcut icon" href="images/favicon.html">
 
-    <title>SenzMate Applications Home</title>
+    <title>Temporary Offer Status Table</title>
 
     <!--Core CSS -->
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
@@ -41,17 +42,23 @@
                     <table class="table table-striped table-hover table-bordered" id="editable-sample">
                         <thead>
                         <tr>
-                            <th>Device</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Row ID</th>
+                            <th>Listing ID</th>
+                            <th>Listings Status</th>
+                            <th>List Agent ID</th>
+                            <th>Agent Cell Phone</th>
+                            <th>Agent Email</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${devices}" var="device">
+                        <c:forEach items="${data}" var="stat">
                             <tr class="">
-                                <td><c:out value="${device.id}"/></td>
-                                <td><a class="edit" href="javascript:;">Edit</a></td>
-                                <td><a class="delete" href="javascript:;">Delete</a></td>
+                                <td><c:out value="${stat.rowId}"/></td>
+                                <td><c:out value="${stat.listingId}"/></td>
+                                <td><c:out value="${stat.listingStatus}"/></td>
+                                <td><c:out value="${stat.listAgentAgentId}"/></td>
+                                <td><c:out value="${stat.agentCellphone}"/></td>
+                                <td><c:out value="${stat.agentEmail}"/></td>
                             </tr>
                         </c:forEach>
                         </tbody>

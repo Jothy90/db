@@ -1,5 +1,7 @@
 package com.kash.db.servlet;
 
+import com.kash.db.repository.DataLayer;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -18,9 +20,8 @@ public class LoadOfferStatus extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession(true);
-
-            session.setAttribute("email", "email");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/pages/db.jsp");
+            session.setAttribute("data", DataLayer.getAll());
+            RequestDispatcher dispatcher = request.getRequestDispatcher("db.jsp");
             dispatcher.forward(request, response);
     }
 }

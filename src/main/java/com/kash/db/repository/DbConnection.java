@@ -13,6 +13,9 @@ import java.sql.DriverManager;
 public class DbConnection {
     public static Connection getConnection() throws Exception {
         String driver = "com.mysql.jdbc.Driver";
+        String url = "";
+        String username = "";
+        String password = "";
         Class.forName(driver); // load JDBC-ODBC driver
         return DriverManager.getConnection(url, username, password);
     }
