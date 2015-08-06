@@ -12,16 +12,12 @@ import java.sql.DriverManager;
  */
 public class DbConnection {
     public static Connection getConnection() throws Exception {
-        String driver = "sun.jdbc.odbc.JdbcOdbcDriver";
-        String url = "jdbc:odbc:EmailApp";
-        String username = "";
-        String password = "";
+        String driver = "com.mysql.jdbc.Driver";
         Class.forName(driver); // load JDBC-ODBC driver
         return DriverManager.getConnection(url, username, password);
     }
 
     public static void main(String args[]){
-
-
+        System.out.println(DataLayer.getAll());
     }
 }

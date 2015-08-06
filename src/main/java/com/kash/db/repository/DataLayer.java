@@ -19,19 +19,45 @@ import java.util.List;
 public class DataLayer {
 
     // when the user login; if it is valid user then return userId else return 0
-    public static List<OfferStatus> getAll(){
-        List<OfferStatus> list =new ArrayList<>();
+    public static List<OfferStatus> getAll() {
+        List<OfferStatus> list = new ArrayList<>();
         OfferStatus offerStatus;
-        String query = "SELECT * FROM tmpOfferStatus ORDER BY rowid ASC";
-        System.out.println(query);
+        String query1="DROP TEMPORARY TABLE IF EXISTS tmpOfferStatus;";
+        String query2 = "CREATE TEMPORARY TABLE tmpOfferStatus\n" +
+                "SELECT os.rowid, res.listingid, res.listingstatus, res.listagentagentid,\n" +
+                "CONCAT(agentfirstname, ' ', agentlastname) AS NAME, agentcellphone, a.agentemail\n" +
+                "FROM carets_res res\n" +
+                "JOIN blOfferStatus os ON os.mls = res.listingid\n" +
+                "JOIN carets_agent a ON a.agentid = res.listagentagentid;";
+        String query3="ALTER TABLE tmpOfferStatus MODIFY listingstatus VARCHAR(25);";
+
+        String query4="INSERT INTO tmpOfferStatus\n" +
+                "SELECT os.rowid, res.mlnumber, res.status, res.la_publicid,\n" +
+                "CONCAT(a.firstname, ' ', a.lastname) AS NAME, a.cellphone, NULL AS agentemail\n" +
+                "FROM crmls_res res\n" +
+                "JOIN blOfferStatus os ON os.mls = res.mlnumber\n" +
+                "JOIN crmls_agent a ON a.publicid = res.la_publicid;";
+
+        String query="SELECT *\n" +
+                "FROM tmpOfferStatus\n" +
+                "ORDER BY rowid ASC;";
+        System.out.println(query1);
         try {
             Connection con = DbConnection.getConnection();
             Statement stmt = con.createStatement();
+            stmt.execute(query1);
+            stmt.execute(query2);
+            stmt.execute(query3);
+            stmt.execute(query4);
             ResultSet rs = stmt.executeQuery(query);
-            while (rs.next()){
-                offerStatus=new OfferStatus();
-                /*id = rs.getInt("user_id");*/
-                //TODO:
+            while (rs.next()) {
+                offerStatus = new OfferStatus();
+                offerStatus.setRowId(rs.getInt("rowid"));
+                offerStatus.setListingId(rs.getString("listingid"));
+                offerStatus.setListingStatus(rs.getString("listingstatus"));
+                offerStatus.setListAgentAgentId(rs.getString("listagentagentId"));
+                offerStatus.setAgentCellphone(rs.getString("agentcellphone"));
+                offerStatus.setAgentEmail(rs.getString("agentemail"));
                 list.add(offerStatus);
             }
             con.close();

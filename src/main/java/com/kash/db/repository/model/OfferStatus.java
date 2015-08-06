@@ -1,7 +1,5 @@
 package com.kash.db.repository.model;
 
-import java.util.Random;
-
 /**
  * Created with IntelliJ IDEA.
  * User: 123
@@ -10,84 +8,70 @@ import java.util.Random;
  * To change this template use File | Settings | File Templates.
  */
 public class OfferStatus {
-    int id;
-    String sendFrom;
-    String sendTo;
-    String date;
-    String cc;
-    String subject;
-    String message;
+    private int rowId;
+    private String listingId;
+    private String listingStatus;
+    private String listAgentAgentId;
+    private String agentCellphone;
+    private String agentEmail;
 
-    public String getSendFrom() {
-        return sendFrom;
+    public int getRowId() {
+        return rowId;
     }
 
-    public void setSendFrom(String sendFrom) {
-        this.sendFrom = sendFrom;
+    public void setRowId(int rowId) {
+        this.rowId = rowId;
     }
 
-    public String getSendTo() {
-        return sendTo;
+    public String getListingId() {
+        return listingId;
     }
 
-    public void setSendTo(String sendTo) {
-        this.sendTo = sendTo;
+    public void setListingId(String listingId) {
+        this.listingId = listingId;
     }
 
-    public String getDate() {
-        return date;
+    public String getListingStatus() {
+        return listingStatus;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setListingStatus(String listingStatus) {
+        this.listingStatus = listingStatus;
     }
 
-    public String getCc() {
-        return cc;
+    public String getListAgentAgentId() {
+        return listAgentAgentId;
     }
 
-    public void setCc(String cc) {
-        this.cc = cc;
+    public void setListAgentAgentId(String listAgentAgentId) {
+        this.listAgentAgentId = listAgentAgentId;
     }
 
-    public String getSubject() {
-        return subject;
+    public String getAgentCellphone() {
+        return agentCellphone;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void setAgentCellphone(String agentCellphone) {
+        this.agentCellphone = agentCellphone;
     }
 
-    public String getMessage() {
-        return message;
+    public String getAgentEmail() {
+        return agentEmail;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setAgentEmail(String agentEmail) {
+        this.agentEmail = agentEmail;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public static OfferStatus getAMail(){
-
-        Random rand = new Random();
-        int max=100;
-        int min=1;
-        int randomNum = rand.nextInt((max - min) + 1) + min;
-
-        OfferStatus email=new OfferStatus();
-        email.setId(randomNum);
-        email.setSendTo("Kamalan");
-        email.setSendFrom("Kashing");
-        email.setSubject("Test");
-        email.setDate("2015-06-10");
-        email.setMessage("This is a Test Message");
-        return email;
+    @Override
+    public String toString() {
+        return "OfferStatus{" +
+                "rowId=" + rowId +
+                ", listingId='" + listingId + '\'' +
+                ", listingStatus='" + listingStatus + '\'' +
+                ", listAgentAgentId='" + listAgentAgentId + '\'' +
+                ", agentCellphone='" + agentCellphone + '\'' +
+                ", agentEmail='" + agentEmail + '\'' +
+                '}';
     }
 }
